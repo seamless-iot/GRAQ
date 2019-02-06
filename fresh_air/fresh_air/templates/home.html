@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% static 'styles' %}
+
+    <meta charset="UTF-8">
+    <title>THIS IS THE HOME TITLE!!!</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+    </div>
+    <p>main page file</p>
+</body>
+</html>

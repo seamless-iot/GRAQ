@@ -1,0 +1,9 @@
+#site-header li {
+    list-style-type: none;
+}
+#site-header .header-inner {
+    background-color: green
+}
+* {
+    color: red;
+}
