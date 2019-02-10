@@ -1,0 +1,8 @@
+
+Dear ${PERSON_NAME}, 
+
+It has come to our attention that there are high levels of air pollutants in your area that might affect your health. Visit our website URL HERE to monitor the current air quality situation. 
+
+Sincerely, 
+
+The Breathe of Fresh Air Team 
