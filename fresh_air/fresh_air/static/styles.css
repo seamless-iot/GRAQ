@@ -1,9 +1,109 @@
-#site-header li {
-    list-style-type: none;
+
+body {
+    margin: 0px;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat";
+}
+p, li, a {
+    font-family: "Chivo";
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
+/**
+*
+* HEADER STYLES
+*
+*/
 #site-header .header-inner {
-    background-color: green
+    background-color: #ffffff;
 }
-* {
-    color: red;
+/** TOP BAR **/
+.top-bar {
+    width: 100%;
+    background-color: black;
+    height: 20px;
+    padding: 5px 0px;
+}
+.top-bar a {
+    color: white;
+}
+#site-header .top-bar-inner {
+    max-width: 1200px;
+    text-align: right;
+    margin: auto;
+}
+#site-header .top-bar-inner a:hover {
+    text-decoration: underline;
+}
+
+/** NAV BAR **/
+#site-header li, {
+    list-style-type: none;
+    display: inline;
+    color: black;
+    font-size: 1em;
+    font-weight: 900;
+}
+#site-header a {
+    font-weight: 900;
+}
+#site-header h1 {
+    font-size: 1.75em;
+    letter-spacing: 0.25px;
+}
+#site-header .nav-bar {
+    height: 70px;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+
+}
+#site-header .nav-bar-inner {
+    max-width: 1080px;
+    overflow: hidden;
+    border-bottom: 2px solid #666666;
+
+}
+
+#site-header .nav-bar-inner {
+    max-width: 1200px;
+    margin: auto;
+}
+#site-header .nav-bar-left {
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+#site-header .nav-bar-right {
+    width: 55%;
+    text-align: left;
+    float: left;
+    padding: 9px 10px;
+}
+#site-header .nav-bar-right li:hover, #site-header .nav-bar-right a:hover {
+    color: green;
+}
+
+/**
+*
+* HOMEPAGE STYLES
+*
+*/
+.home-container {
+    width: 100%;
+    background-color: light-grey;
+}
+.home-inner {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+.home-intro {
+    text-align: center;
+}
+.form-container {
+    text-align: left;
 }

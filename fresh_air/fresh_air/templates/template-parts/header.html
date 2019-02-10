@@ -1,16 +1,33 @@
 <div id="site-header">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Chivo|Montserrat:900" rel="stylesheet">
     <div class="header-inner">
         <div class="top-bar">
-            <p><a href="#">Español</a></p>
+            <div class="top-bar-inner">
+                <p><a href="#">Español</a></p>
+            </div>
+        </div>
+        <div class="header-banner">
+            <img height="auto" width="100%" id="header-img" src="{% static '/uploads/GR_SKYLINE.JPG' %}">
         </div>
         <div class="nav-bar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li>Air Quality Report</li>
-                <li>Sign up for Alerts</li>
-                <li>More</li>
-            </ul>
+            <div class="nav-bar-inner">
+                <div class="nav-bar-left">
+                    <h1>Project Fresh Air Grand Rapids</h1>
+                </div>
+                <div class="nav-bar-right">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <p>|</p>
+                        <li><a href="/about">About</a></li>
+                        <p>|</p>
+                        <li><a href="#">Air Quality Report</a></li>
+                        <p>|</p>
+                        <li><a href="#">More</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
