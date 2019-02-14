@@ -59,6 +59,7 @@ p, li, a {
     overflow: hidden;
     width: 100%;
     padding: 10px;
+    padding-bottom: 0px;
 
 }
 #site-header .nav-bar-inner {
@@ -86,15 +87,17 @@ p, li, a {
 #site-header .nav-bar-right li:hover, #site-header .nav-bar-right a:hover {
     color: green;
 }
-
 /**
 *
 * HOMEPAGE STYLES
 *
-*/
+**/
 .home-container {
     width: 100%;
-    background-color: light-grey;
+    height: 100%;
+    background-color: #00FF7F;
+    padding: 20px;
+    padding-bottom: 50px;
 }
 .home-inner {
     max-width: 1200px;
@@ -106,4 +109,24 @@ p, li, a {
 }
 .form-container {
     text-align: left;
+    width: 100%;
+}
+.alert-form {
+    width: 38%;
+    margin: auto;
+}
+.alert-form p {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.alert-form input.alert_optin {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.alert-form input.alert_field {
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 60%;
 }

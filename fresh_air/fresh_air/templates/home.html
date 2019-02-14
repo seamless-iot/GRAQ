@@ -17,13 +17,16 @@
                 <h2>Sign up for air quality alerts today</h2>
             </div>
             <div class="form-container">
-                <form class="fresh-air-form alert-form">
+                <form class="fresh-air-form alert-form" action="{% url 'Signup' %}" method="POST">
+                    {% csrf_token %}
                     <p>I want to receive air quality alerts via: </p><br>
-                    <input type="checkbox" class="alert_optin_email" name="email_optin" value="email_optin"> Email<br>
-                    <input type="checkbox" class="alert_optin_phone" name="phone_optin" value="phone_optin"> Text<br>
+                    <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" value="email_optin"> Email<br>
+                    <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin" value="phone_optin"> Text<br>
 
-                    <input type="email" name="email_input">
-                    <input type="tel" name="phone_input">
+                    <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email"> <br>
+                    <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
+
+                    <input type="submit" value="Submit">
                 </form>
             </div>
         </div>
