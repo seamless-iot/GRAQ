@@ -13,10 +13,11 @@ def home_page(request):
 def about(request):
     return render(request, 'about.html')
 
-def thankyou(request):
-    return render(request, 'thankyou.html')
-
+# this is the function called by the form
+# we don't really need to print the post variables, but
+# we can pass them to another function that stores them
+# in the aws database
 def signup(request):
     print(request.POST['email'])
     print(request.POST['phone'])
-    return HttpResponseRedirect(reverse('thankyou'))
+    return render(request, 'thankyou.html')
