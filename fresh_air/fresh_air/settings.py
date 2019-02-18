@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'data_push',
     'data_push.apps.DataPushConfig',
     'django.contrib.admin',
     'django.contrib.auth',

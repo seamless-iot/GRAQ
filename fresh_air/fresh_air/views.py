@@ -28,8 +28,9 @@ def about(request):
 def signup(request):
     email = request.POST['email']
     phone = request.POST['phone']
-    tier = request.POST['tier']
-    #pushSignup(email, phone, tier)
+    tier = 1; #tier is set manually until we get the tier system implemented into the form
+    # we get "pushSignup" from the "data_push" app i.e. fresh_air/data_push/data_push.py
+    pushSignup(email, phone, tier)
     #print(request.POST['email'])
     #print(request.POST['phone'])
     return render(request, 'thankyou.html')
