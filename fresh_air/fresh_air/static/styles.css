@@ -132,6 +132,25 @@ p, li, a {
     margin-bottom: 10px;
     width: 60%;
 }
+
+.phone-wrap input.alert_field_phone {
+    margin-bottom:0px !important;
+}
+.phone-wrap .input-note {
+    margin-top: 5px;
+}
+
+.tier-optin input {
+    width: 20%;
+    float: left;
+}
+.tier-optin div.tier-optin-notes {
+    display: inline-block;
+    width: 80%;
+    float: left;
+}
+
+
 .submit-container {
 width: 60%;
 text-align: center;

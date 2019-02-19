@@ -21,12 +21,32 @@
                 <form class="fresh-air-form alert-form" action="{% url 'signup' %}" method="POST">
                     {% csrf_token %}
                     <p>I want to receive air quality alerts via: </p><br>
-                    <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" value="email_optin"> Email<br>
-                    <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin" value="phone_optin"> Text<br>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" > Email
+                        <span class="checkmark"></span>
+                    </div>
+                    <br>
+                    <div class="checkbox-container">
+                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"> Text
+                        <span class="checkmark"></span>
+                    </div>
+                    <br>
 
                     <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email"> <br>
-                    <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
+                    <div class="input-wrap phone-wrap">
+                        <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
+                        <p class="input-note">*Standard text messaging rates may apply</p>
+                    </div>
                     <br>
+                    <div class="tier-optin checkbox-container">
+                        <input type="checkbox" class="alert_optin alert_optin_tier" name="tier_optin">
+                        <span class="checkmark"></span>
+
+                        <div class="tier-optin-notes">
+                            <p class="checkbox-main">I or a family member are sensitive to poor air quality, and I would like to receive additional air quality information.</p>
+                            <p class="checkbox-second">Not sure if this is you? <a href="#">See here for more details.</a></p>
+                        </div>
+                    </div>
                     <div class="submit-container">
                         <input class="signup-submit"type="submit" value="SIGN UP">
                     </div>
