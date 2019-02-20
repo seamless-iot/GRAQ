@@ -9,6 +9,31 @@
 <body>
     <div class="header-container">
         {% include "./template-parts/header.html" %}
+        <script>
+        $(document).ready(function() {
+            $(".checkbox-container .checkmark").click(function() {
+                if($(this).siblings("input").prop("checked")) {
+                    $(this).siblings("input").prop("checked", false);
+                }
+                else {
+                    $(this).siblings("input").prop("checked", true);
+                }
+
+                if( $(".email-container input").prop("checked") ) {
+                    $(".alert_field_email").show();
+                }
+                else {
+                    $(".alert_field_email").hide();
+                }
+                if( $(".phone-container input").prop("checked") ) {
+                    $(".phone-wrap").show();
+                }
+                else {
+                    $(".phone-wrap").hide();
+                }
+            });
+        });
+    </script>
     </div>
     <div class="home-container">
         <div class="home-inner">
@@ -21,13 +46,12 @@
                 <form class="fresh-air-form alert-form" action="{% url 'signup' %}" method="POST">
                     {% csrf_token %}
                     <p>I want to receive air quality alerts via: </p><br>
-                    <div class="checkbox-container">
-                        <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" > Email
+                    <div class="checkbox-container email-container">
+                        <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" ><p class="optin-label">Email</p>
                         <span class="checkmark"></span>
                     </div>
-                    <br>
-                    <div class="checkbox-container">
-                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"> Text
+                    <div class="checkbox-container phone-container">
+                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"><p class="optin-label">Text</p>
                         <span class="checkmark"></span>
                     </div>
                     <br>
