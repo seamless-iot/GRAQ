@@ -12,6 +12,13 @@ p, li, a {
     text-decoration: none;
     color: black;
 }
+
+a {
+    color: #26547C
+}
+a:hover {
+    color: #666666
+}
 /**
 *
 * HEADER STYLES
@@ -43,7 +50,7 @@ p, li, a {
 #site-header li, {
     list-style-type: none;
     display: inline;
-    color: black;
+    color: black !important;
     font-size: 1em;
     font-weight: 900;
 }
@@ -55,7 +62,7 @@ p, li, a {
     letter-spacing: 0.25px;
 }
 #site-header .nav-bar {
-    height: 70px;
+    height: 75px;
     overflow: hidden;
     width: 100%;
     padding: 10px;
@@ -64,7 +71,6 @@ p, li, a {
 #site-header .nav-bar-inner {
     max-width: 1080px;
     overflow: hidden;
-    border-bottom: 2px solid #666666;
 
 }
 
@@ -77,6 +83,10 @@ p, li, a {
     text-align: left;
     float: left;
 }
+#site-header .nav-bar-left h1 {
+    font-family: "Roboto" !important;
+    font-size: 2em;
+}
 #site-header .nav-bar-right {
     width: 55%;
     text-align: left;
@@ -86,15 +96,17 @@ p, li, a {
 #site-header .nav-bar-right li:hover, #site-header .nav-bar-right a:hover {
     color: green;
 }
-
 /**
 *
 * HOMEPAGE STYLES
 *
-*/
+**/
 .home-container {
     width: 100%;
-    background-color: light-grey;
+    height: 100%;
+    background-color: #00FF7F;
+    padding: 3em 20px;
+    min-height: 750px;
 }
 .home-inner {
     max-width: 1200px;
@@ -106,4 +118,163 @@ p, li, a {
 }
 .form-container {
     text-align: left;
+    width: 100%;
 }
+.alert-form {
+    width: 38%;
+    margin: auto;
+}
+.alert-form p {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.alert-form input.alert_optin {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.alert-form input.alert_field {
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+.phone-wrap input.alert_field_phone {
+    margin-bottom:0px !important;
+}
+.phone-wrap .input-note {
+    margin-top: 5px;
+}
+p.input-note:hover {
+
+}
+
+.tier-optin {
+    overflow: hidden;
+    margin-top: 10px;
+}
+.tier-optin input {
+    width: 20%;
+    float: left;
+}
+.tier-optin div.tier-optin-notes {
+    display: inline-block;
+    float: left;
+}
+.tier-optin-notes p {
+    display: block;
+    margin-top: 0px;
+}
+.tier-optin-notes .checkbox-main {
+    font-size: 20px;
+}
+.tier-optin-notes .checkbox-second {
+    font-size: 16px;
+}
+
+
+.submit-container {
+    margin-top: 20px;
+    width: 60%;
+    text-align: center;
+}
+input.signup-submit {
+    padding: 10px;
+    border: none;
+    width: 100% !important;
+    background-color: #26547C;
+    border-radius: 5px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    color: white;
+}
+
+input.signup-submit:hover {
+    cursor: pointer;
+}
+
+
+.home-inner.thank-you {
+    padding: 20px 0px;
+}
+
+.optin-label {
+    display: block !important;
+}
+
+.email-wrap, .phone-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s linear
+}
+
+
+/* styles for custom checkboxes, i stole this from w3schools */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkmark:hover {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #FFD166;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
