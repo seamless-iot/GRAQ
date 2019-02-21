@@ -35,7 +35,9 @@ class DecimalEncoder(json.JSONEncoder):
 
 # pulls contact info from the db 
 def get_contacts():
-    contacts = []
+    contacts_emails = []
+    contacts_names = []
+
     dynamodb = boto3.resource('dynamodb',
                               aws_access_key_id=ACCESS_KEY,
                               aws_secret_access_key=SECRET_KEY,
@@ -49,9 +51,12 @@ def get_contacts():
     for i in response["Items"]:
         temp = str(json.dumps(i["email"], cls=DecimalEncoder))
         temp = temp.replace("\"", "")
-        contacts.append(temp)
+        contacts_emails.append(temp)
+        temp = str(json.dumps(i["name"], cls=DecimalEncoder))
+        temp = temp.replace("\"", "")
+        contacts_names.append(temp)
 
-    return contacts
+    return contacts_names, contacts_emails
 
 #Reads in the template email body I wrote that can be easily changed again 
 def read_template(filename):
@@ -61,9 +66,7 @@ def read_template(filename):
 
 def send_emails():
 
-    #update db to include emails 
-    #names, emails = get_contacts()
-    emails = get_contacts()
+    names, emails = get_contacts()
 
     message_template = read_template('email_template.txt')
 
@@ -73,14 +76,15 @@ def send_emails():
     s.login(MY_ADDRESS, PASSWORD)
 
     #loop through alert list to send to 
-    for email in emails:
+    for name, email in zip(names, emails):
         msg = MIMEMultipart()       
 
         # add name to the email template
-        #fix l8r
-        name = "YOU"
         message = message_template.substitute(PERSON_NAME=name.title())
         
+        #testing
+        print(message)
+
         # setup the parameters of the message
         msg['From']=MY_ADDRESS
         msg['Subject']="This is a TEST"
