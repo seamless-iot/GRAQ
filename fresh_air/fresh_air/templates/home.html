@@ -11,25 +11,29 @@
         {% include "./template-parts/header.html" %}
         <script>
         $(document).ready(function() {
+            // when someone clicks our custom checkboxes
             $(".checkbox-container .checkmark").click(function() {
+                // if their associated "input" is checked we turn checked off
                 if($(this).siblings("input").prop("checked")) {
                     $(this).siblings("input").prop("checked", false);
                 }
+                // otherwise we turn checked on
                 else {
                     $(this).siblings("input").prop("checked", true);
                 }
 
+                // this is a lazy solution to making the inputs animate
                 if( $(".email-container input").prop("checked") ) {
-                    $(".alert_field_email").show();
+                    $(".email-wrap").css("max-height", "200px");
                 }
                 else {
-                    $(".alert_field_email").hide();
+                    $(".email-wrap").css("max-height", "0");
                 }
                 if( $(".phone-container input").prop("checked") ) {
-                    $(".phone-wrap").show();
+                    $(".phone-wrap").css("max-height", "200px");
                 }
                 else {
-                    $(".phone-wrap").hide();
+                    $(".phone-wrap").css("max-height", "0");
                 }
             });
         });
@@ -55,24 +59,28 @@
                         <span class="checkmark"></span>
                     </div>
                     <br>
-
-                    <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email"> <br>
+                    <div class="input-wrap email-wrap">
+                        <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email">
+                        <p class="input-note"></p>
+                        <br>
+                    </div>
                     <div class="input-wrap phone-wrap">
                         <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
                         <p class="input-note">*Standard text messaging rates may apply</p>
+                        <br>
                     </div>
-                    <br>
-                    <div class="tier-optin checkbox-container">
-                        <input type="checkbox" class="alert_optin alert_optin_tier" name="tier_optin">
+
+                    <div class="input-wrap tier-optin checkbox-container">
+                        <input type="checkbox" class="alert_optin alert_optin_tier" name="tier_optin" value="tier_optin">
                         <span class="checkmark"></span>
 
                         <div class="tier-optin-notes">
-                            <p class="checkbox-main">I or a family member are sensitive to poor air quality, and I would like to receive additional air quality information.</p>
-                            <p class="checkbox-second">Not sure if this is you? <a href="#">See here for more details.</a></p>
+                            <p class="input-note checkbox-main">I or a family member are sensitive to poor air quality, and I would like to receive additional air quality information.</p>
+                            <p class="input-note checkbox-second">Not sure if this is you? <a href="#">See here for more details.</a></p>
                         </div>
                     </div>
                     <div class="submit-container">
-                        <input class="signup-submit"type="submit" value="SIGN UP">
+                        <input class="signup-submit" type="submit" value="SIGN UP">
                     </div>
                 </form>
             </div>

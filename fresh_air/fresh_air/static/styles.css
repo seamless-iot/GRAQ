@@ -12,6 +12,13 @@ p, li, a {
     text-decoration: none;
     color: black;
 }
+
+a {
+    color: #26547C
+}
+a:hover {
+    color: #666666
+}
 /**
 *
 * HEADER STYLES
@@ -43,7 +50,7 @@ p, li, a {
 #site-header li, {
     list-style-type: none;
     display: inline;
-    color: black;
+    color: black !important;
     font-size: 1em;
     font-weight: 900;
 }
@@ -98,8 +105,8 @@ p, li, a {
     width: 100%;
     height: 100%;
     background-color: #00FF7F;
-    padding: 20px;
-    padding-bottom: 50px;
+    padding: 3em 20px;
+    min-height: 750px;
 }
 .home-inner {
     max-width: 1200px;
@@ -139,9 +146,13 @@ p, li, a {
 .phone-wrap .input-note {
     margin-top: 5px;
 }
+p.input-note:hover {
+
+}
 
 .tier-optin {
     overflow: hidden;
+    margin-top: 10px;
 }
 .tier-optin input {
     width: 20%;
@@ -172,11 +183,17 @@ input.signup-submit {
     padding: 10px;
     border: none;
     width: 100% !important;
-    background-color: #FFFF88;
+    background-color: #26547C;
     border-radius: 5px;
     font-weight: 700;
     letter-spacing: 0.75px;
+    color: white;
 }
+
+input.signup-submit:hover {
+    cursor: pointer;
+}
+
 
 .home-inner.thank-you {
     padding: 20px 0px;
@@ -186,12 +203,14 @@ input.signup-submit {
     display: block !important;
 }
 
-.alert_field_email, .phone-wrap {
-    display: none;
+.email-wrap, .phone-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.5s linear
 }
 
 
-
+/* styles for custom checkboxes, i stole this from w3schools */
 .checkbox-container {
   display: block;
   position: relative;
@@ -225,13 +244,13 @@ input.signup-submit {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
+.checkmark:hover {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #FFD166;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

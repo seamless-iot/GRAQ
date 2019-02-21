@@ -28,7 +28,15 @@ def about(request):
 def signup(request):
     email = request.POST['email']
     phone = request.POST['phone']
-    tier = 1; #tier is set manually until we get the tier system implemented into the form
+    tier = 1
+    if request.POST.get('tier_optin', False):
+        tier = 2
+
+    #print("HEYYYYYYYYYYYYYYYYYYY")
+    #print(request.POST.get('tier-optin'))
+    #if (request.POST.get('tier-optin') == True):
+      #  tier = 2
+
     # we get "pushSignup" from the "data_push" app i.e. fresh_air/data_push/data_push.py
     pushSignup(email, phone, tier)
     #print(request.POST['email'])
