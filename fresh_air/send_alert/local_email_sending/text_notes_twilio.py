@@ -1,8 +1,7 @@
-## most simple way i could find to send texts through email will probably change 
-##the issue here is knowing the cell carrier 
-##we COULD send the text through all carriers and see which send(inefficent but it is an option) 
+##alternative texting script using twilio, will decide best course of action in group meeting 
+## pip install twilio
 
-import smtplib
+from twilio.rest import Client 
 import boto3
 import json
 import decimal
@@ -46,30 +45,25 @@ def get_contacts_phone():
     return contacts_phone
 
 def send_texts(message):
-    
-    carriers = {
-    'att':    '@mms.att.net',
-    'tmobile':' @tmomail.net',
-    'verizon':  '@vtext.com',
-    'sprint':   '@page.nextel.com'
-    }
 
     numbers = get_contacts_phone()
-    
-    #temp with my number for testing 
-    to_number = '5862601818{}'.format(carriers['att'])
-    auth = (MY_ADDRESS, PASSWORD)
 
-    # Establish a secure session with gmail's outgoing SMTP server using your gmail account
-    #SMTP server
-    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
-    s.starttls()
-    s.login(auth[0], auth[1])
+    account_sid = 'ACbf87eb8c0bd704d956525a4c9b7b9cc0'
+    auth_token = 'd7c8ba3f9e209414d57daa64318d0a12'
+    client = Client(account_sid, auth_token)
 
-    for i in numbers: 
-        text = "Megan "
-        text += message
-        s.sendmail( auth[0], to_number, text)
+    for number in numbers:
+
+        #will change to my hard coded number to number in real code 
+        message = client.messages.create(
+                                  from_='+15862216842',
+                                  body='test test test',
+                                  to='+15862601818'
+                              )
+
+        print(message)
+
+
 
 def main():
     send_texts("AIR QUALITY ALERT")
