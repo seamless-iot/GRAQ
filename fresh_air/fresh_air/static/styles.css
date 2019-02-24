@@ -1,4 +1,4 @@
-
+/* https://coolors.co/00ff7f-26547c-ef476f-ffd166-fcfcfc */
 body {
     margin: 0px;
 }
@@ -115,6 +115,8 @@ a:hover {
 }
 .home-intro {
     text-align: center;
+    margin-bottom: 2em;
+    border-bottom: 2px solid black;
 }
 .form-container {
     text-align: left;

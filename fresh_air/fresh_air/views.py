@@ -19,13 +19,15 @@ def home_page(request):
 def about(request):
     return render(request, 'about.html')
 
+def analysis(request):
+    return render(request, 'analysis.html')
+
 # this is the function called by the form
 # we don't really need to print the post variables, but
 # we can pass them to another function that stores them
 # in the aws database
-
-
 def signup(request):
+    name = request.POST['name']
     email = request.POST['email']
     phone = request.POST['phone']
     tier = 1
@@ -38,7 +40,7 @@ def signup(request):
       #  tier = 2
 
     # we get "pushSignup" from the "data_push" app i.e. fresh_air/data_push/data_push.py
-    pushSignup(email, phone, tier)
+    pushSignup(name, email, phone, tier)
     #print(request.POST['email'])
     #print(request.POST['phone'])
     return render(request, 'thankyou.html')

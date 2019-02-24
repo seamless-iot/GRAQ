@@ -14,8 +14,8 @@ class DecimalEncoder(json.JSONEncoder):
         return super(DecimalEncoder, self).default(o)
 
 # this is our function that pushes to dynamoDB.
-# currently takes 3 parameters, this may change
-def pushSignup(email, phone, tier):
+# currently takes 4 parameters, this may change
+def pushSignup(name, email, phone, tier):
     ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
     SECRET_KEY = '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'
 
@@ -35,7 +35,8 @@ def pushSignup(email, phone, tier):
                         # because the id is the partition key.
                         # change the id to something else to add a new entry. In the future,
                         # we can use email as the partition key
-                        'id':45,
+                        'id': 45,
+                        'name': name,
                         'email':email,
                         'phone':phone,
                         'tier': tier

@@ -49,6 +49,9 @@
                 <!-- action goes to the url "signup". see the urls.py file -->
                 <form class="fresh-air-form alert-form" action="{% url 'signup' %}" method="POST">
                     {% csrf_token %}
+
+                    <input type="text" class="alert_field alert_field_name" name="name" placeholder="First Name">
+
                     <p>I want to receive air quality alerts via: </p><br>
                     <div class="checkbox-container email-container">
                         <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" ><p class="optin-label">Email</p>
