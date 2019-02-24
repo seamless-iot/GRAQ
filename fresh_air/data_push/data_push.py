@@ -13,7 +13,7 @@ class DecimalEncoder(json.JSONEncoder):
                 return int(o)
         return super(DecimalEncoder, self).default(o)
 
-def pushSignup(email, phone, tier):
+def pushSignup(name, email, phone, tier):
     ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
     SECRET_KEY = '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'
 
@@ -28,6 +28,7 @@ def pushSignup(email, phone, tier):
     response = table.put_item(
                     Item={
                         'id':45,
+                        'name': name,
                         'email':email,
                         'phone':phone,
                         'tier': tier
