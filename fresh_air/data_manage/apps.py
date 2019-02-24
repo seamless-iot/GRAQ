@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DataVisualizeConfig(AppConfig):
-    name = 'data_visualize'
+class DataManageConfig(AppConfig):
+    name = 'data_manage'
