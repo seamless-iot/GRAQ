@@ -10,16 +10,19 @@ from django.urls import reverse
 #from fresh_air.fresh_air.data_push import pushSignup
 from data_push.data_push import pushSignup
 
-import data_visualize.sensorMap
+#import data_visualize.sensorMap
 
+from data_visualize.models import *
 
 
 def home_page(request):
     return render(request, 'home.html')
 
 def about(request):
-    context = {'sensorMap': }
-    return render(request, 'about.html', context=context)
+    map = mapClass()
+    context1 = {'sensorMap': map }
+
+    return render(request, 'about.html', context=context1) #context=context)
 
 def analysis(request):
     return render(request, 'analysis.html')

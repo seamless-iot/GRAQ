@@ -4,15 +4,17 @@ import dash_html_components as html
 import plotly.plotly as py
 import plotly.graph_objs as go
 
-import data_visualize.map_info as map_info
+#import data_visualize.map_info as map_info
+#map_info.graphDataGetting()
 
+#from data_visualize.models import *
 
 mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-graphData = map_info.graphDataGetter()
+graphData = graphDataGetter()
 graphData.run()
 locationData = graphData.getLocationData()
 latC=[]

@@ -6,7 +6,13 @@
 </head>
 <body>
     {% include "./template-parts/header.html" %}
+    {% if sensorMap %}
+        <h1>YEE</h1>
+    {% else %}
+        <h1>no</h1>
+    {% endif %}
 
+    {{ sensorMap.buildMap }}
 
 
 </body>
