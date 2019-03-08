@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4938a96-c5ce-416f-8f8d-025ab773abe9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/templates/air-quality-guide.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/templates`/.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/urls.py" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/views.py" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +47,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="air-quality-guide.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="air-quality-guide.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/air-quality-guide.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="597">
               <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -107,7 +112,6 @@
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/default_data_pull.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/settings.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/thankyou.html" />
-        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/data_push.py" />
         <option value="$PROJECT_DIR$/fresh_air/data_push/data_push.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/analysis.html" />
@@ -117,6 +121,7 @@
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates`/.html" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/air-quality-guide.html" />
+        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
       </list>
     </option>
   </component>
@@ -173,6 +178,14 @@
               <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
               <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freshair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freshair" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="template-parts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -554,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/thankyou.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -639,6 +645,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="597">
           <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding />
         </state>
       </provider>
