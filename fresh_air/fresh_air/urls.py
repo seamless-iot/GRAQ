@@ -26,6 +26,7 @@ urlpatterns = [
     path('about/', views.about, name="About"),
     path('admin/', admin.site.urls),
     path('analysis/', views.analysis, name="Analysis"),
+    path('guide/', views.airqualityguide, name="Air Quality Guide"),
     # this is where our signup form points to. It activates the "signup" function in views.py
     path('thankyou/', views.signup, name='signup')
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
