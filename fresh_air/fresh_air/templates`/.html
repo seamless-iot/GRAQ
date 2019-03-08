@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">vcf
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+    </div>
+    <div class="home-container guide">
+        <div class="guide-inner">
+            <h1>Project Fresh Air - Air Quality Guide</h1>
+            <h2>Guide Overview</h2>
+            <p>We've assembled this guide to help the community better understand how their air quality is monitored, and how it can affect them. Here we will break down the different kinds of air pollutants and describe the health effects they can have.</p>
+
+            <h2>Types of Pollutants</h2>
+            <div class="pollutant">
+                <h3>1. Ozone</h3>
+                <p class="subject-label">Who is most at risk?</p>
+                <p>Several groups of people are particularly sensitive to ozone, especially when they are active outdoors. This is because ozone levels are higher outdoors, and physical activity causes faster and deeper breathing, drawing more ozone into the body.</p>
+                <ul>
+                    <li><p>People with lung diseases, such as asthma, chronic bronchitis, and emphysema, can be particularly sensitive to ozone. They will generally experience more serious health effects at lower levels. Ozone can aggravate their diseases, leading to increased medication use, doctor and emergency room visits, and hospital admissions.</p></li>
+                    <li><p>Children, including teenagers, are at higher risk from ozone exposure because they often play outdoors in warmer weather when ozone levels are higher, they are more likely to have asthma (which may be aggravated by ozone exposure), and their lungs are still developing.</p></li>
+                    <li><p>Older adults may be more affected by ozone exposure, possibly because they are more likely to have pre-existing lung disease.</p>3</li>
+                </ul>
+            </div>
+            <div class="pollutant">
+                <h3>2. Particulate Matter</h3>
+                <p class="subject-label">Who is most at risk?</p>
+                <p>When exposed to particle pollution, people with heart or lung diseases and older adults are more likely to visit emergency rooms, be admitted to hospitals, or in some cases, even die.</p>
+                <ul>
+                    <li><p>Exposure to particulate pollution may cause people with heart disease to experience chest pain, palpitations, shortness of breath, and fatigue. Particle pollution has also been associated with cardiac arrhythmia and heart attacks.</p></li>
+                    <li><p>When exposed to high levels of particle pollution, people with existing lung disease may not be able to breathe as deeply or vigorously as they normally would. They may experience symptoms such as coughing and shortness of breath. Healthy people also may experience these effects, although they are unlikely to experience more serious effects.</p></li>
+                    <li><p>Particle pollution also can increase susceptibility to respiratory infections and can aggravate existing respiratory diseases, such as asthma and chronic bronchitis, causing more use of medication and more doctor visits.</p></li>
+                </ul>
+            </div>
+            <div class="pollutant">
+                <h3>3. Sulfur dioxide</h3>
+                <p class="subject-label">Who is most at risk?</p>
+                <p>People with asthma who are physically active outdoors are most likely to experience the health effects of sulfur dioxide. The main effect, even with very brief exposure (minutes), is a narrowing of the airways (called bronchoconstriction). This may be accompanied by wheezing, chest tightness, and shortness of breath, which may require use of medication that opens the airways. Symptoms increase as sulfur dioxide levels or breathing rate increases. When exposure to sulfur dioxide ceases,lung function typically returns to normal within an hour,even without medication.</p>
+                <ul>
+                    <li><p>At very high levels, sulfur dioxide may cause wheezing, chest tightness, and shortness of breath even in healthy people who do not have asthma.</p></li>
+                    <li><p>Long-term exposure to sulfur dioxide may cause respiratory symptoms and illness, and aggravate asthma. People with asthma are the most susceptible to sulfur dioxide. However, people with other chronic lung diseases or cardiovascular disease, as well as children and older adults, may also be susceptible to these effects.</p></li>
+                </ul>
+            </div>
+            <div class="pollutant">
+                <h3>4. Carbon Monoxide</h3>
+                <p class="subject-label">Who is most at risk?</p>
+                <p>People with cardiovascular disease, such as coronary artery disease, are most at risk. They may experience chest pain and other cardiovascular symptoms if they are exposed to carbon monoxide, particularly while exercising.</p>
+                <ul>
+                    <li><p>People with marginal or compromised cardiovascular and respiratory systems (for example, individuals with congestive heart failure, cerebrovascular disease, anemia, or chronic obstructive lung disease), and possibly young infants and fetuses, also may be at greater risk from carbon monoxide pollution.</p></li>
+                    <li><p>In healthy individuals, exposure to higher levels of carbon monoxide can affect mental alertness and vision.</p></li>
+                </ul>
+            </div>
+            <div class="pollutant">
+                <h3>4. Nitrogen Dioxide</h3>
+                <p class="subject-label">Who is most at risk?</p>
+                <p>Individuals who spend time on or near major roads can experience NO2exposures considerably higher than occur away from roads. These exposures are of particular concern for sensitive groups, such as people with lung disease including asthma, children and older adults.</p>
+                <ul>
+                    <li><p>People with existing lung conditions, including:</p>
+                        <ul>
+                            <li><p>Asthma</p></li>
+                            <li><p>Chronic obstructive respiratory disease (COPD)</p></li>
+                            <li><p>Emphysema</p></li>
+                            <li><p>Chronic Bronchitis</p></li>
+                        </ul>
+                    </li>
+                    <li><p>Children, whose lungs are still developing and are more likely to have asthma</p></li>
+                    <li><p>Older adults, who are likely to have undiagnosed lung conditions</p></li>
+                </ul>
+            </div>
+    </div>
+    </div>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat";
 }
-p, li, a {
+p, a {
     font-family: "Chivo";
     display: inline;
     text-decoration: none;
@@ -38,7 +38,7 @@ a:hover {
     color: white;
 }
 #site-header .top-bar-inner {
-    max-width: 1200px;
+    max-width: 1399px;
     text-align: right;
     margin: auto;
 }
@@ -47,15 +47,25 @@ a:hover {
 }
 
 /** NAV BAR **/
-#site-header li, {
+#site-header li {
     list-style-type: none;
     display: inline;
     color: black !important;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: 900;
+    text-decoration: none;
+    font-family: "Chivo";
+    display: inline;
+    text-decoration: none;
+    color: black;
+    padding: 0px 5px;
 }
 #site-header a {
     font-weight: 900;
+    font-family: "Chivo";
+    display: inline;
+    text-decoration: none;
+    color: black;
 }
 #site-header h1 {
     font-size: 1.75em;
@@ -278,5 +288,30 @@ input.signup-submit:hover {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/**
+*
+* GUIDE STYLES
+*
+**/
+.guide {
+
+}
+.guide-inner {
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    padding: 3em;
+}
+.guide .pollutant {
+    margin: 1em 0em;
+}
+.guide .subject-label {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.guide li {
+    margin-bottom: 5px;
 }
 
