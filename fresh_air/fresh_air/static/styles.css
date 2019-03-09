@@ -315,3 +315,11 @@ input.signup-submit:hover {
     margin-bottom: 5px;
 }
 
+
+.text-section p {
+    display: block;
+}
+.text-section {
+    margin-bottom: 30px;
+}
+
