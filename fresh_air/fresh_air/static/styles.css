@@ -19,6 +19,13 @@ a {
 a:hover {
     color: #666666
 }
+input:focus, textarea:focus {
+    border: solid 1px black !important;
+
+}
+.bold {
+    font-weight: 700;
+}
 /**
 *
 * HEADER STYLES
@@ -65,17 +72,15 @@ a:hover {
     font-family: "Chivo";
     display: inline;
     text-decoration: none;
-    color: black;
 }
 #site-header h1 {
     font-size: 1.75em;
     letter-spacing: 0.25px;
 }
 #site-header .nav-bar {
-    height: 75px;
+    height: auto;
     overflow: hidden;
     width: 100%;
-    padding: 10px;
 
 }
 #site-header .nav-bar-inner {
@@ -101,7 +106,7 @@ a:hover {
     width: 55%;
     text-align: left;
     float: left;
-    padding: 9px 10px;
+    padding: 9px 0px;
 }
 #site-header .nav-bar-right li:hover, #site-header .nav-bar-right a:hover {
     color: green;
@@ -323,3 +328,126 @@ input.signup-submit:hover {
     margin-bottom: 30px;
 }
 
+
+.nav-bar {
+    width: 100%;
+}
+.nav-bar-top {
+    text-align: center;
+}
+.nav-bar-bottom {
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+.navbar-inner {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+}
+
+.navbar, .navbar-inner, .subnav-content, .subnav-content-inner {
+    height: 50px;
+}
+.subnav a {
+    height: 22px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  margin: 0;
+  font-weight: 900;
+  font-family: "Chivo";
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #26547c;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #26547c;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+}
+.subnav-content-inner {
+    margin: auto;
+    display: inline-block;
+    width: auto;
+    overflow: hidden;
+    padding-left: 20.2em;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+
+
+/** Contact Page **/
+.contact .form-container {
+    width: 60%;
+    margin: auto;
+    margin-top: 40px;
+}
+.contact form {
+    width: 100%;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+/** Data **/
+.form-container-data {
+    text-align: center;
+}
+.form-container-data .submit-container {
+    width: 100%;
+}

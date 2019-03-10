@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+    </div>
+<div class="home-container data">
+    <div class="guide-inner">
+        <h1>Get the Data</h1>
+        <div class="contact-intro">
+            <p> Here at Project Fresh Air, we understand the importance of the community having access to our data. We want this information to be publicly available to anyone can help make Grand Rapids a healthier place. <br>
+            </p>
+            <p class="bold">Click the button below to get started!</p>
+        </div>
+
+        <div class="form-container-data">
+                <form class="fresh-air-form alert-form contact-form" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="submit-container">
+                        <input class="signup-submit" type="submit" value="Get the Data">
+                    </div>
+
+                </form>
+            </div>
+
+
+    </div>
+</div>
+</body>
+</html>

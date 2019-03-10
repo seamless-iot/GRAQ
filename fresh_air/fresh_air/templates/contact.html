@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+    </div>
+<div class="home-container contact">
+    <div class="guide-inner">
+        <h1>Contact Us</h1>
+        <div class="contact-intro">
+            <p> Want to know more about our project?<br>
+                Do you have a question about air quality?<br>
+                Have comments or suggestions?<br>
+            </p>
+            <p class="bold">Send Us a Message Below!</p>
+        </div>
+
+        <div class="form-container">
+                <form class="fresh-air-form alert-form contact-form" action="" method="POST">
+                    {% csrf_token %}
+
+                    <input type="text" class="alert_field contact_name" name="name" placeholder="Your Name">
+                    <input type="email" class="alert_field contact_email" name="email" placeholder="Your Email">
+                    <textarea class="alert_field contact_message" name="message" placeholder="What would you like to say?" rows="10"></textarea>
+                    <div class="submit-container">
+                        <input class="signup-submit" type="submit" value="SEND">
+                    </div>
+
+                </form>
+            </div>
+
+
+    </div>
+</div>
+</body>
+</html>
