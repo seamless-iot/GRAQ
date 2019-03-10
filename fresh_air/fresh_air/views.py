@@ -25,6 +25,12 @@ def analysis(request):
 def airqualityguide(request):
     return render(request, 'air-quality-guide.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
+def data(request):
+    return render(request, 'data.html');
+
 # this is the function called by the form
 # we don't really need to print the post variables, but
 # we can pass them to another function that stores them

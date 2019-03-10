@@ -4,6 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Chivo|Montserrat:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="header-inner">
         <div class="top-bar">
             <div class="top-bar-inner">
@@ -14,22 +15,26 @@
             <img height="auto" width="100%" id="header-img" src="{% static '/uploads/GR_SKYLINE.JPG' %}">
         </div>
         <div class="nav-bar">
-            <div class="nav-bar-inner">
-                <div class="nav-bar-left">
-                    <h1>Project Fresh Air Grand Rapids</h1>
-                </div>
-                <div class="nav-bar-right">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <p>|</p>
-                        <li><a href="/about">About</a></li>
-                        <p>|</p>
-                        <li><a href="#">Air Quality Report</a></li>
-                        <p>|</p>
-                        <li><a href="/guide">Guide</a></li>
-                        <p>|</p>
-                        <li><a href="#">More</a></li>
-                    </ul>
+            <div class="nav-bar-top">
+                <h1>Project Fresh Air Grand Rapids</h1>
+            </div>
+            <div class="nav-bar-bottom">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/analysis">Air Quality Report</a>
+                    <a href="/guide">Air Quality Guide</a>
+                    <div class="subnav">
+                        <button class="subnavbtn">More <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                            <div class="subnav-content-inner">
+                                <a href="/data">Get the Data</a>
+                                <a href="/contact">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
