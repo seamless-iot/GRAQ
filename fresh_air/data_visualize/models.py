@@ -133,8 +133,7 @@ class mapClass ():
                 elif (a != ' '):
                     buff += a
                 index += 1
-            textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i['device_type']
-                         + '. Current AQI measured: ' + i['AQI'])
+           # textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i['device_type'] + '. Current AQI measured: ' + i['AQI'])
 
         app.layout = html.Div(children=[
             html.H1(children='Sensor Location Sample Test'),
