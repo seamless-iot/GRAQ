@@ -45,12 +45,12 @@ class graphDataGetter(object):
         #searchBegTime = currentDT.strftime("%Y-%m-%d") + "/" + begHour + ":00:00"
         #searchEndTime = currentDT.strftime("%Y-%m-%d") + "/" + endHour + ":00:00"
 
-        #set values to pull from the table for now
-        searchBegTime = "2019-02-23/10:00:00"
-        searchEndTime = "2019-02-23/11:00:00"
+        # set values to pull from the table for now
+        searchBegTime = "2019-03-19/11:00:01"
+        searchEndTime = "2019-03-19/12:00:00"
 
-        #this goes with the placeholder code
-        #it tries to pull the most recent value in the table
+        # this goes with the placeholder code
+        # it tries to pull the most recent value in the table
         table = self.dynamodb.Table('mapdata')
         response = table.scan(FilterExpression=Key('time').eq(searchEndTime))
         self.mapData = response["Items"]
@@ -58,12 +58,12 @@ class graphDataGetter(object):
             response = table.scan(FilterExpression=Key('time').eq(searchBegTime))
             self.mapData = response["Items"]
 
-        #this gets the sensor IDs and the AQIs for
-        #those sensors into their own dictionary so that
-        #the IDs can be compared to the ones
-        #in the sensor table and the AQI values
-        #can be added to the other dictionary
-        #print(mapData)
+        # this gets the sensor IDs and the AQIs for
+        # those sensors into their own dictionary so that
+        # the IDs can be compared to the ones
+        # in the sensor table and the AQI values
+        # can be added to the other dictionary
+        # print(mapData)
         for i in self.mapData:
             sID = i["sensorIDs"]
             sID = sID[1:-1] #removes brackets
@@ -73,8 +73,8 @@ class graphDataGetter(object):
             sensorAQIs = sAQI.split(",")
             mapDict = dict(zip(sensorIDs, sensorAQIs))
 
-        #this adds the AQI for each sensor to its
-        #dictionary in locationData
+        # this adds the AQI for each sensor to its
+        # dictionary in locationData
 
         #print(locationData)
         for id, aqi in mapDict.items():
