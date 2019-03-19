@@ -29,13 +29,14 @@ dynamodb = boto3.resource('dynamodb',
 # Here are the standard values for each of
 # the pollutants that are measured by our
 # sensors
-# gotten from
+# keep this url for reference
 # https://www.epa.vic.gov.au/your-environment/air/air-pollution/air-quality-index/calculating-a-station-air-quality-index
-o3standard = 100 # ppb
-pm10standard = 50 # ug/m3
-pm25standard = 25 # ug/m3
-no2standard = 120 # ppb
-so2standard = 200 # ppb
+aqitable = [[0,50], [51,100], [101,150], [151,200], [201,300]]
+o3table = [[0,54], [55,70], [71,85], [86,105], [106,200]]
+pm10table = [[0,54], [55,154], [155,254], [255,354], [355,424]]
+pm25table = [[0,12], [12.1,35.4], [35.5, 55.4],[55.5,150.4], [150.5,250.4]]
+no2table = [[0,53], [54,100], [101,360], [361,649], [650,1249]]
+so2table = [[0,35], [36,75], [76,185], [186,304], [305,604]]
 
 # This section of code gets the locations of all the sensors being used
 table = dynamodb.Table('sensor_locations')
@@ -93,9 +94,30 @@ for i in locationData:
     if len(deviceData) != 0:
         # Get AQI for each time in table
         for k in range(len(deviceData)):
-            ozone = (int(deviceData[k]['o3']) / o3standard) * 100
-            pm10 = (int(deviceData[k]['pm10Average']) / pm10standard) * 100
-            pm25 = (int(deviceData[k]['pm25Average']) / pm25standard) * 100
+            for l in range(len(o3table)):
+                if int(deviceData[k]['o3']) <= o3table[l][1]:
+                    break
+            lowEnd = o3table[l][0]
+            highEnd = o3table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            ozone = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['o3']) - lowEnd) + aqiLow
+            for l in range(len(pm10table)):
+                if int(deviceData[k]['pm10Average']) <= pm10table[l][1]:
+                    break
+            lowEnd = pm10table[l][0]
+            highEnd = pm10table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            pm10 = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['pm10Average']) - lowEnd) + aqiLow
+            for l in range(len(pm25table)):
+                if int(deviceData[k]['pm25Average']) <= pm25table[l][1]:
+                    break
+            lowEnd = pm25table[l][0]
+            highEnd = pm25table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            pm25 = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['pm25Average']) - lowEnd) + aqiLow
             aqi = max(ozone, pm10, pm25)
             aqiValues.append(aqi)
         # Get the average AQI for this sensor in this time
@@ -124,14 +146,39 @@ for i in locationData:
     aqiValues = []
     if len(deviceData) != 0:
         # Get AQI for each time in table
-        # Was originally doing a different calculation for this and may
-        # go back to it in the future, need to do a bit more research
-        # as to what the best option is
         for k in range(len(deviceData)):
-            no2 = (int(deviceData[k]["no2"]) / no2standard) * 100
-            ozone = (int(deviceData[k]['o3']) / o3standard) * 100
-            pm25 = (int(deviceData[k]['pm25']) / pm25standard) * 100
-            so2 = (int(deviceData[k]['so2']) / so2standard) * 100
+            for l in range(len(no2table)):
+                if int(deviceData[k]['no2']) <= no2table[l][1]:
+                    break
+            lowEnd =no2table[l][0]
+            highEnd = no2table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            no2 = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['no2']) - lowEnd) + aqiLow
+            for l in range(len(o3table)):
+                if int(deviceData[k]['o3']) <= o3table[l][1]:
+                    break
+            lowEnd = o3table[l][0]
+            highEnd = o3table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            ozone = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['o3']) - lowEnd) + aqiLow
+            for l in range(len(pm25table)):
+                if int(deviceData[k]['pm25']) <= pm25table[l][1]:
+                    break
+            lowEnd = pm25table[l][0]
+            highEnd = pm25table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            pm25 = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['pm25']) - lowEnd) + aqiLow
+            for l in range(len(so2table)):
+                if int(deviceData[k]['so2']) <= so2table[l][1]:
+                    break
+            lowEnd = so2table[l][0]
+            highEnd = so2table[l][1]
+            aqiLow = aqitable[l][0]
+            aqiHigh = aqitable[l][1]
+            so2 = ((aqiHigh - aqiLow) / (highEnd - lowEnd)) * (int(deviceData[k]['so2']) - lowEnd) + aqiLow
             aqi = max(no2, ozone, pm25, so2)
             aqiValues.append(aqi)
         # Get the average AQI for this sensor in this time
@@ -146,7 +193,7 @@ for i in locationData:
 # with random values
 for i in locationData:
     if i["AQI"] == 0:
-        i["AQI"] = 25 + random.randint(1, 75)
+        i["AQI"] = 25 + random.randint(1, 25)
 
 strIDs = "["
 strAQIs = "["
