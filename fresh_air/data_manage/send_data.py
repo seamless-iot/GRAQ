@@ -124,6 +124,9 @@ for i in locationData:
     aqiValues = []
     if len(deviceData) != 0:
         # Get AQI for each time in table
+        # Was originally doing a different calculation for this and may
+        # go back to it in the future, need to do a bit more research
+        # as to what the best option is
         for k in range(len(deviceData)):
             no2 = (int(deviceData[k]["no2"]) / no2standard) * 100
             ozone = (int(deviceData[k]['o3']) / o3standard) * 100
