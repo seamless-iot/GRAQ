@@ -108,10 +108,12 @@ class graphDataGetter(object):
 class mapClass ():
 
     def buildMap(self):
+        from django_plotly_dash import DjangoDash
+
         mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
         external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-        app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+        app = DjangoDash('example', external_stylesheets=external_stylesheets)
 
         graphData = graphDataGetter()
         graphData.run()

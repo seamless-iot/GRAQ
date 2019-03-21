@@ -11,8 +11,11 @@
     {% else %}
         <h1>no</h1>
     {% endif %}
-
     <!--{{ sensorMap.buildMap }} -->
+
+    {% load plotly_dash %}
+    {% plotly_direct name='example' %}
+
 
 
 </body>
