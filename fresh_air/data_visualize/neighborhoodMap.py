@@ -3,6 +3,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 import dataPull
+from django_plotly_dash import DjangoDash
+
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 mapbox_access_token = "pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA"
@@ -11,7 +14,7 @@ graphData.run()
 mapData = graphData.getMapData()
 locationData = graphData.getLocationData()
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = DjangoDash('NeighborHoodMap', external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
     html.H1(children='Air Quality Heatmap Sample Test'),

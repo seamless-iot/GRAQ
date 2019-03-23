@@ -451,3 +451,10 @@ input.signup-submit:hover {
 .form-container-data .submit-container {
     width: 100%;
 }
+
+.map-container {
+    min-height: 400px;
+}
+.map-container > div {
+    min-height: 400px;
+}

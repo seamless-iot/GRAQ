@@ -3,12 +3,13 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.plotly as py
 import plotly.graph_objs as go
-import dataPull
+from data_visualize import models as dataPull
+from django_plotly_dash import DjangoDash
 
 mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = DjangoDash('sensormap', external_stylesheets=external_stylesheets)
 
 graphData = dataPull.graphDataGetter()
 graphData.run()
@@ -30,8 +31,8 @@ for i in locationData:
         elif(a != ' '):
             buff += a
         index += 1
-    textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i['device_type']
-                 + '. Current AQI measured: ' + i['AQI'])
+
+    textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i['device_type'] + '. Current AQI measured: ' ) #+ i['aqi'] )
 
 
 app.layout = html.Div(children=[

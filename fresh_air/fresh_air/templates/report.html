@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {%load plotly_dash%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+
+<div class="header-container">
+        {% include "./template-parts/header.html" %}
+</div>
+<div class="home-container analysis-container">
+    <div class="home-inner">
+        <div class="home-intro">
+            <div class="map-container">
+                {%plotly_app name="Neighborhood"%}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -20,7 +20,6 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('', views.home_page, name="Home"),
     path('about/', views.about, name="About"),
@@ -30,5 +29,9 @@ urlpatterns = [
     path('contact/', views.contact, name="Contact Us"),
     path('data/', views.data, name="Get the Data"),
     # this is where our signup form points to. It activates the "signup" function in views.py
-    path('thankyou/', views.signup, name='signup')
-] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('thankyou/', views.signup, name='signup'),
+    #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('report/', include('data_visualize.urls')),
+    path('django_plotly_dash/', include('django_plotly_dash.urls'))
+
+    ]
