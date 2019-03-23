@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {%load plotly_dash%}
     <meta charset="UTF-8">
     <title>About Us</title>
 </head>
@@ -25,7 +26,10 @@
             <h2>How?</h2>
             <p>Hot chicken butcher fanny pack kickstarter disrupt raclette single-origin coffee copper mug health goth shoreditch tumeric. Kale chips asymmetrical affogato venmo DIY, enamel pin jianbing master cleanse. Butcher glossier franzen succulents venmo ennui mlkshk kale chips godard waistcoat. Hexagon mumblecore ethical fixie, actually lo-fi tumblr raclette. Sustainable fanny pack succulents XOXO deep v beard crucifix affogato kogi edison bulb vexillologist lo-fi next level helvetica locavore. Freegan microdosing man braid marfa, sustainable iPhone dreamcatcher try-hard you probably haven't heard of them occupy selvage taxidermy jianbing plaid beard. Pok pok taxidermy salvia 90's truffaut.</p>
             <div class="data-container">
-                [sensor map goes here]
+                <div class="map-container">
+                    {%plotly_app name="sensormap"%}
+                </div>
+
             </div>
         </div>
 

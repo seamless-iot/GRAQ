@@ -68,4 +68,4 @@ def test(request):
         )
     ])
 
-    return render(request, 'test.html')
+    return render(request, 'report.html')
