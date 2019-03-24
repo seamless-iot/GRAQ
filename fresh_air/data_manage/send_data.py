@@ -51,7 +51,7 @@ for i in locationData:
 currentDT = datetime.datetime.now()
 strHour = currentDT.strftime("%H")
 intHour = int(strHour)
-intHour += 1
+#intHour += 1
 if intHour < 10:
     strHour = "0" + str(intHour)
 else:
@@ -76,8 +76,11 @@ else:
 start_time = '2018-09-26T13:00:01'
 
 # Pull all ost_data from table for time interval
+#print(start_time)
+#print(end_time)
 response = table.scan(FilterExpression=Key('time').between(start_time, end_time))
 ostData = response['Items']
+#print(ostData)
 
 # Note for ost_data
 # Has o3 (o3), pm10 (pm10average), and pm2.5 (pm25average)
@@ -184,9 +187,9 @@ for i in locationData:
         # Get the average AQI for this sensor in this time
         aqi = sum(aqiValues) / len(aqiValues)
         if i["AQI"] != 0:
-            i["AQI"] = max(aqi, i["AQI"])
+            i["AQI"] = int(max(aqi, i["AQI"]))
         else:
-            i["AQI"] = aqi
+            i["AQI"] = int(aqi)
 
 # For testing purposes, this code can
 # fill the locations with no AQI data
