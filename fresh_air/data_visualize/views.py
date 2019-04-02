@@ -10,22 +10,131 @@ from django.http import HttpResponse
 
 
 def test(request):
+    # -*- coding: utf-8 -*-
     import dash
     import dash_core_components as dcc
     import dash_html_components as html
     import plotly.graph_objs as go
-    #import dataPull
-    from data_visualize import models as dataPull
-    from django_plotly_dash import DjangoDash
+    import dataPull
+    import json
+    from matplotlib import path
 
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
     mapbox_access_token = "pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA"
     graphData = dataPull.graphDataGetter()
     graphData.run()
-    mapData = graphData.getMapData()
     locationData = graphData.getLocationData()
+    print(locationData)
+    lat=''
+    lon=''
+    sensorList=[]
+    neighborhoods=[]
+    buff=''
 
-    app = DjangoDash('Neighborhood', external_stylesheets=external_stylesheets)
+    for i in locationData:
+        index = 0
+        for a in i['device_gps_location']:
+            if a == ',':
+                lat += buff
+                buff = ''
+            elif index == len(i['device_gps_location'])-1:
+                lon += buff
+                buff = ''
+            elif a != ' ':
+                buff += a
+            index += 1
+        sensorList.append(dict(
+            id=i['device_id'],
+            coordinates=[float(lat), float(lon)],
+            AQI=i['AQI']
+        ))
+        lat = ''
+        lon = ''
+
+    with open('City_of_Grand_Rapids_Neighborhood_Areas.geojson') as f:
+        geoFile = json.load(f)
+
+    for i in geoFile['features']:
+        neighborhoods.append(dict(
+            name=i['properties']['NEBRH'],
+            coordinates=i['geometry']['coordinates']
+        ))
+
+    listForMap = []
+
+    for i in neighborhoods:
+        coordinates = i['coordinates']
+        coordinates2 = i['coordinates']
+
+        tempJson = {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    coordinates
+                ]
+              }
+            }
+          ]
+        }
+
+        latHolder = coordinates2[0]
+        coordinates2[0] = coordinates2[1]
+        coordinates2[1] = latHolder
+        tempPath = path.Path(coordinates2)
+        AQICount=0
+        sensorNum=0
+
+        for a in sensorList:
+            latHolder=a['coordinates'][0]
+            a['coordinates'][0]=a['coordinates'][1]
+            a['coordinates'][1]=latHolder
+            tempPoint=a['coordinates']
+            if tempPath.contains_point(tempPoint):
+                print("contains point")
+                AQICount+=a['AQI']
+                sensorNum+=1
+
+        #print(AQICount)
+        #print(sensorNum)
+
+        if sensorNum!=0:
+            AQIAvg=AQICount/sensorNum
+            print(AQIAvg)
+            if AQIAvg <= 50:
+                tempColor = 'rgba(0, 228, 0, 1)'
+            elif AQIAvg > 50 and AQICount <= 100:
+                tempColor = 'rgba(255, 255, 0, 1)'
+            elif AQIAvg > 100 and AQICount <= 150:
+                tempColor = 'rgba(255, 126, 0, 1)'
+            elif AQIAvg > 150 and AQICount <= 200:
+                tempColor = 'rgba(255, 0, 0, 1)'
+            elif AQIAvg > 200 and AQICount <= 300:
+                tempColor = 'rgba(153, 0, 76, 1)'
+            elif AQIAvg > 300:
+                tempColor = 'rgba(126, 0, 35, 1)'
+        else:
+            tempColor = 'rgba(245, 245, 245, 1)'
+
+        AQICount = 0
+        sensorNum = 0
+
+        #DUBUGGING
+        #print(tempColor)
+
+        listForMap.append(dict(
+            opacity=0.8,
+            sourcetype='geojson',
+            source=tempJson,
+            type='fill',
+            color=tempColor
+        ))
+
+    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(children=[
         html.H1(children='Air Quality Heatmap Sample Test'),
@@ -36,24 +145,15 @@ def test(request):
             figure={
                 'data': [
                     go.Scattermapbox(
-                        lat=['45.5017'],
-                        lon=['-73.5673'],
                         mode='markers',
+                        name="test",
+                        hoverinfo='text'
                     )
                 ],
                 'layout': go.Layout(
                     autosize=True,
-                    hovermode='closest',
                     mapbox=dict(
-                        layers=[
-                            dict(
-                                sourcetype='geojson',
-                                source='https://raw.githubusercontent.com/chris-schertenlieb/fresh-air-cis467/'
-                                       'master/City_of_Grand_Rapids_Neighborhood_Areas.geojson',
-                                type='fill',
-                                color='rgba(163,22,19,0.8)'
-                            )
-                        ],
+                        layers = listForMap,
                         accesstoken=mapbox_access_token,
                         bearing=0,
                         center=dict(
@@ -61,7 +161,7 @@ def test(request):
                             lon=-85.68
                         ),
                         pitch=0,
-                        zoom=10
+                        zoom=10,
                     )
                 )
             }

@@ -46,8 +46,8 @@ class graphDataGetter(object):
         #searchEndTime = currentDT.strftime("%Y-%m-%d") + "/" + endHour + ":00:00"
 
         # set values to pull from the table for now
-        searchBegTime = "2019-03-19/11:00:01"
-        searchEndTime = "2019-03-19/12:00:00"
+        searchBegTime = "2019-03-24/9:00:01"
+        searchEndTime = "2019-03-24/10:00:00"
 
         # this goes with the placeholder code
         # it tries to pull the most recent value in the table
