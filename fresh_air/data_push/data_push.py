@@ -13,7 +13,7 @@ class DecimalEncoder(json.JSONEncoder):
                 return int(o)
         return super(DecimalEncoder, self).default(o)
 
-def pushSignup(name, email, phone, tier):
+def pushSignup(name, email, phone, carrier, tier, textAlerts, emailAlerts):
     ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
     SECRET_KEY = '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'
 
@@ -24,14 +24,20 @@ def pushSignup(name, email, phone, tier):
                               region_name='us-west-2'
                              )
 
+    if(phone == ''):
+        phone = 'none'
+        carrier = 'n/a'
+
     table = dynamodb.Table('email_list')
     response = table.put_item(
                     Item={
-                        'id':45,
                         'name': name,
                         'email':email,
                         'phone':phone,
-                        'tier': tier
+                        'tier': tier,
+                        'carrier': carrier,
+                        'textAlerts': textAlerts,
+                        'emailAlerts': emailAlerts
                     }
     )
     print("PutItem succeeded:")

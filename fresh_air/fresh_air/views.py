@@ -107,6 +107,16 @@ def signup(request):
     name = request.POST['name']
     email = request.POST['email']
     phone = request.POST['phone']
+    carrier = request.POST['carrier']
+
+    textAlerts = False
+    if request.POST.get('phone_optin', False):
+        textAlerts = True
+
+    emailAlerts = False
+    if request.POST.get('email_optin', False):
+        emailAlerts = True
+
     tier = 1
     if request.POST.get('tier_optin', False):
         tier = 2
@@ -117,7 +127,7 @@ def signup(request):
       #  tier = 2
 
     # we get "pushSignup" from the "data_push" app i.e. fresh_air/data_push/data_push.py
-    pushSignup(name, email, phone, tier)
+    pushSignup(name, email, phone, carrier, tier, textAlerts, emailAlerts)
     #print(request.POST['email'])
     #print(request.POST['phone'])
     return render(request, 'thankyou.html')

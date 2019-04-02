@@ -149,7 +149,7 @@ input:focus, textarea:focus {
     padding: 10px;
     margin-bottom: 10px;
 }
-.alert-form input.alert_field {
+.alert-form .alert_field {
     padding: 10px;
     border: solid 1px black;
     border-radius: 8px;
@@ -220,10 +220,10 @@ input.signup-submit:hover {
     display: block !important;
 }
 
-.email-wrap, .phone-wrap {
+.phone-wrap {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1.5s linear
+    transition: max-height 1s linear
 }
 
 
