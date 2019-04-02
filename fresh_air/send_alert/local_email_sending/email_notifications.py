@@ -1,10 +1,6 @@
-#works to send emails 
-#from tutorial mentioned in the other .py file 
-#currently just being run on local machine but should have little issue moving to the web app 
+##TO DO:
+##fix query to check first 
 
-#requirements for validate email:
-#   pip install validate_email
-#   pip install py3dns
 
 import smtplib
 from string import Template
@@ -15,12 +11,7 @@ import boto3
 import json
 import decimal
 from boto3.dynamodb.conditions import Key, Attr
-
-##TO DO: move this info to a credentials file 
-MY_ADDRESS = 'teambreatheoffreshair@gmail.com'
-PASSWORD = 'CIS467BFA'
-ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
-SECRET_KEY = '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'
+import config 
 
 # Helper class to convert a DynamoDB item to JSON.
 #from amazon docs
@@ -39,22 +30,26 @@ def get_contacts():
     contacts_names = []
 
     dynamodb = boto3.resource('dynamodb',
-                              aws_access_key_id=ACCESS_KEY,
-                              aws_secret_access_key=SECRET_KEY,
+                              aws_access_key_id=config.ACCESS_KEY,
+                              aws_secret_access_key=config.SECRET_KEY,
                               region_name='us-west-2'
                              )
+   
     # say what table this is
     table = dynamodb.Table('email_list')
 
     response = table.scan()
 
     for i in response["Items"]:
-        temp = str(json.dumps(i["email"], cls=DecimalEncoder))
-        temp = temp.replace("\"", "")
-        contacts_emails.append(temp)
-        temp = str(json.dumps(i["name"], cls=DecimalEncoder))
-        temp = temp.replace("\"", "")
-        contacts_names.append(temp)
+        try:
+            temp = str(json.dumps(i["email"], cls=DecimalEncoder))
+            temp_email = temp.replace("\"", "")
+            temp = str(json.dumps(i["name"], cls=DecimalEncoder))
+            temp_name = temp.replace("\"", "")
+            contacts_emails.append(temp_email)
+            contacts_names.append(temp_name)
+        except:
+            print("there is an issue here and i caught it")
 
     return contacts_names, contacts_emails
 
@@ -65,15 +60,13 @@ def read_template(filename):
     return Template(template_email_body)
 
 def send_emails():
-
     names, emails = get_contacts()
-
     message_template = read_template('email_template.txt')
 
     #SMTP server
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
-    s.login(MY_ADDRESS, PASSWORD)
+    s.login(config.MY_ADDRESS, config.PASSWORD)
 
     #loop through alert list to send to 
     for name, email in zip(names, emails):
@@ -86,19 +79,13 @@ def send_emails():
         print(message)
 
         # setup the parameters of the message
-        msg['From']=MY_ADDRESS
-        msg['Subject']="This is a TEST"
-
-        #will also need this checking function in the form where they sign up for email alerts 
-        #there is an issue with this check 
-        #if(validate_email(email,verify=True)):
+        msg['From']=config.MY_ADDRESS
+        msg['Subject']="Air Quality Alert"
         msg['To']=email
-        #else: 
-        #    continue
         
         msg.attach(MIMEText(message, 'plain'))
 
-        #commented for testing 
+        #commented for testing
         #s.send_message(msg)
         
         del msg
