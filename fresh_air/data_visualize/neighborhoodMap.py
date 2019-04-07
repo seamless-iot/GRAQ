@@ -17,9 +17,6 @@ locationData = graphData.getLocationData()
 app = DjangoDash('NeighborHoodMap', external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
-    html.H1(children='Air Quality Heatmap Sample Test'),
-    html.Div(children='This is a test for the air quality heatmap '
-                      'that will be displayed to our users through our web app.'),
     dcc.Graph(
         id='example-graph',
         figure={
