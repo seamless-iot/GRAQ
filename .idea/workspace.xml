@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4938a96-c5ce-416f-8f8d-025ab773abe9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/static/uploads/City-of-GR-Logo-Color.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/data_visualize/models.py" afterPath="$PROJECT_DIR$/fresh_air/data_visualize/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/data_visualize/neighborhoodMap.py" afterPath="$PROJECT_DIR$/fresh_air/data_visualize/neighborhoodMap.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/data_visualize/views.py" afterPath="$PROJECT_DIR$/fresh_air/data_visualize/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" afterPath="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,10 +27,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fresh_air/data_visualize/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="566">
+            <state relative-caret-position="2533">
               <caret line="149" column="39" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -58,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensorMap.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fresh_air/data_visualize/sensorMap.py">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="119">
+              <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -80,11 +81,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="75" column="58" lean-forward="false" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
+            <state relative-caret-position="770">
+              <caret line="107" column="4" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -144,6 +155,8 @@
       <find>city_of_grand</find>
       <find>load static</find>
       <find>Neighborhood</find>
+      <find>src=&quot;</find>
+      <find>3.1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,19 +187,19 @@
         <option value="$PROJECT_DIR$/fresh_air/data_visualize/sensorMap.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/urls.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/about.html" />
-        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
-        <option value="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" />
         <option value="$PROJECT_DIR$/fresh_air/data_push/data_push.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/views.py" />
-        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html" />
         <option value="$PROJECT_DIR$/fresh_air/data_visualize/models.py" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/analysis.html" />
         <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/report.html" />
         <option value="$PROJECT_DIR$/fresh_air/data_visualize/views.py" />
+        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html" />
+        <option value="$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css" />
+        <option value="$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -230,6 +243,36 @@
               <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
               <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="freshair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freshair" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freshair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freshair" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freshair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freshair" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freshair" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freshair" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="fresh_air" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="template-parts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -245,11 +288,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Repositories\freshair\fresh_air\fresh_air\static\uploads" />
       <recent name="D:\Repositories\freshair\fresh_air\data_visualize" />
       <recent name="D:\Repositories\freshair\fresh_air\fresh_air\static" />
       <recent name="D:\Repositories\freshair\fresh_air\fresh_air" />
       <recent name="D:\Repositories\freshair\fresh_air\fresh_air\templates\static" />
-      <recent name="D:\Repositories\freshair\fresh_air\assets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Repositories\freshair\fresh_air\fresh_air\static" />
@@ -307,7 +350,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1380597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -559,13 +602,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/static/sensorMap.py" />
-    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fresh_air/data_manage/ost_2019-03-21T13-08-16.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -582,26 +618,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="225" column="28" lean-forward="false" selection-start-line="225" selection-start-column="28" selection-end-line="225" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fresh_air/data_visualize/sensorMap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="75" column="58" lean-forward="false" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -690,11 +710,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fresh_air/data_visualize/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
+        <state relative-caret-position="2533">
           <caret line="149" column="39" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/template-parts/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/static/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fresh_air/fresh_air/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="107" column="4" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
