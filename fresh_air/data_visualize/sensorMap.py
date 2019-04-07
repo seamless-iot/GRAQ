@@ -36,9 +36,6 @@ for i in locationData:
 
 
 app.layout = html.Div(children=[
-    html.H1(children='Sensor Location Sample Test'),
-    html.Div(children='This is a test for a map that shows were air quality sensors are '
-                      'located. Right now this is made out of sample data.'),
     dcc.Graph(
         id='example-graph',
         figure={
