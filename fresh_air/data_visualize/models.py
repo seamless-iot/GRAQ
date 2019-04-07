@@ -8,6 +8,7 @@ import boto3
 import json
 import decimal
 import datetime
+import random
 from boto3.dynamodb.conditions import Key, Attr
 
 # Helper class to convert a DynamoDB item to JSON.

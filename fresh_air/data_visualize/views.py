@@ -7,6 +7,8 @@ import dash_html_components as html
 from django_plotly_dash import DjangoDash
 # Create your views here.
 from django.http import HttpResponse
+import os
+
 
 
 def test(request):
@@ -15,7 +17,7 @@ def test(request):
     import dash_core_components as dcc
     import dash_html_components as html
     import plotly.graph_objs as go
-    import dataPull
+    from data_visualize import models as dataPull
     import json
     from matplotlib import path
 
@@ -51,7 +53,7 @@ def test(request):
         lat = ''
         lon = ''
 
-    with open('City_of_Grand_Rapids_Neighborhood_Areas.geojson') as f:
+    with open(os.path.dirname(__file__) + '/City_of_Grand_Rapids_Neighborhood_Areas.geojson') as f:
         geoFile = json.load(f)
 
     for i in geoFile['features']:
@@ -134,7 +136,7 @@ def test(request):
             color=tempColor
         ))
 
-    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+    app = DjangoDash('Neighborhood', external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(children=[
         html.H1(children='Air Quality Heatmap Sample Test'),
