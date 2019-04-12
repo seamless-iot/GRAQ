@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+        <script>
+        $(document).ready(function() {
+            // when someone clicks our custom checkboxes
+            $(".checkbox-container .checkmark").click(function() {
+                // if their associated "input" is checked we turn checked off
+                if($(this).siblings("input").prop("checked")) {
+                    $(this).siblings("input").prop("checked", false);
+                }
+                // otherwise we turn checked on
+                else {
+                    $(this).siblings("input").prop("checked", true);
+                }
+
+                // this is a lazy solution to making the inputs animate
+                /* if( $(".email-container input").prop("checked") ) {
+                    $(".email-wrap").css("max-height", "200px");
+                }
+                else {
+                    $(".email-wrap").css("max-height", "0");
+                } */
+                if( $(".phone-container input").prop("checked") ) {
+                    $(".phone-wrap").css("max-height", "200px");
+                }
+                else {
+                    $(".phone-wrap").css("max-height", "0");
+                }
+            });
+        });
+    </script>
+    </div>
+    <div class="home-container">
+        <div class="home-inner">
+            <div class="home-intro">
+                <h1>Controle su salud</h1>
+                <h2>Regístrese para recibir alertas sobre la calidad del aire</h2>
+            </div>
+            <div class="form-container">
+                <!-- action goes to the url "signup". see the urls.py file -->
+                <form class="fresh-air-form alert-form" action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+
+                    <input type="text" class="alert_field alert_field_name" name="name" placeholder="Nombre" required>
+                    <div class="input-wrap email-wrap">
+                        <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email" required>
+                        <p class="input-note"></p>
+                        <br>
+                    </div>
+
+                    <p>Quiero recibir alertas por:</p><br>
+                    <div class="checkbox-container email-container">
+                        <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" ><p class="optin-label">Email</p>
+                        <span class="checkmark"></span>
+                    </div>
+                    <div class="checkbox-container phone-container">
+                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"><p class="optin-label">Mensaje de Texto</p>
+                        <span class="checkmark"></span>
+                    </div>
+
+                    <div class="input-wrap phone-wrap">
+                        <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
+                        <p class="input-note">*Se aplican las tarifas de mensajes de texto estándar</p>
+                        <br>
+                        <p class="optin-label">Operador de Celular</p>
+                        <select class="alert_field alert_field_carrier" name="carrier">
+                            <option value="n/a">--Seleccione una opción--</option>
+                            <option value="alltell">Alltell</option>
+                            <option value="att">AT&T</option>
+                            <option value="boost">Boost</option>
+                            <option value="cricket">Cricket</option>
+                            <option value="metropcs">Metro PCS</option>
+                            <option value="googlefi">Google Fi</option>
+                            <option value="sprint">Sprint</option>
+                            <option value="tmobile">T-Mobile</option>
+                            <option value="us_cellular">US Cellular</option>
+                            <option value="verizon">Verizon</option>
+                            <option value="virginmobile">Virgin Mobile</option>
+                        </select>
+                    </div>
+
+                    <div class="input-wrap tier-optin checkbox-container">
+                        <input type="checkbox" class="alert_optin alert_optin_tier" name="tier_optin" value="tier_optin">
+                        <span class="checkmark"></span>
+
+                        <div class="tier-optin-notes">
+                            <p class="input-note checkbox-main">Yo o algún miembro de mi familia somos sensitivos al aire contaminado, por tanto me gustaría recibir información adicional sobre la calidad del aire.</p>
+                            <p class="input-note checkbox-second">No está seguro si es usted?<a href="#">Vea más detalles aquí.</a></p>
+                        </div>
+                    </div>
+                    <div class="submit-container">
+                        <input class="signup-submit" type="submit" value="Regístrese">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+
+</div>
+</body>
+</html>
