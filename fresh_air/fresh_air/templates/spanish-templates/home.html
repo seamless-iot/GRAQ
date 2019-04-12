@@ -42,38 +42,38 @@
     <div class="home-container">
         <div class="home-inner">
             <div class="home-intro">
-                <h1>Take Control of Your Health</h1>
-                <h2>Sign up for air quality alerts today</h2>
+                <h1>Controle su salud</h1>
+                <h2>Regístrese para recibir alertas sobre la calidad del aire</h2>
             </div>
             <div class="form-container">
                 <!-- action goes to the url "signup". see the urls.py file -->
                 <form class="fresh-air-form alert-form" action="{% url 'signup' %}" method="POST">
                     {% csrf_token %}
 
-                    <input type="text" class="alert_field alert_field_name" name="name" placeholder="First Name" required>
+                    <input type="text" class="alert_field alert_field_name" name="name" placeholder="Nombre" required>
                     <div class="input-wrap email-wrap">
                         <input type="email" class="alert_field alert_field_email" name="email" placeholder="Email" required>
                         <p class="input-note"></p>
                         <br>
                     </div>
 
-                    <p>I want to receive air quality alerts via: </p><br>
+                    <p>Quiero recibir alertas por:</p><br>
                     <div class="checkbox-container email-container">
                         <input type="checkbox" class="alert_optin alert_optin_email" name="email_optin" ><p class="optin-label">Email</p>
                         <span class="checkmark"></span>
                     </div>
                     <div class="checkbox-container phone-container">
-                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"><p class="optin-label">Text</p>
+                        <input type="checkbox" class="alert_optin alert_optin_phone" name="phone_optin"><p class="optin-label">Mensaje de Texto</p>
                         <span class="checkmark"></span>
                     </div>
 
                     <div class="input-wrap phone-wrap">
                         <input type="tel" class="alert_field alert_field_phone" name="phone" placeholder="Phone">
-                        <p class="input-note">*Standard text messaging rates may apply</p>
+                        <p class="input-note">*Se aplican las tarifas de mensajes de texto estándar</p>
                         <br>
-                        <p class="optin-label">Cell Phone carrier</p>
+                        <p class="optin-label">Operador de Celular</p>
                         <select class="alert_field alert_field_carrier" name="carrier">
-                            <option value="n/a">--Select an Option--</option>
+                            <option value="n/a">--Seleccione una opción--</option>
                             <option value="alltell">Alltell</option>
                             <option value="att">AT&T</option>
                             <option value="boost">Boost</option>
@@ -93,12 +93,12 @@
                         <span class="checkmark"></span>
 
                         <div class="tier-optin-notes">
-                            <p class="input-note checkbox-main">I or a family member are sensitive to poor air quality, and I would like to receive additional air quality information.</p>
-                            <p class="input-note checkbox-second">Not sure if this is you? <a href="#">See here for more details.</a></p>
+                            <p class="input-note checkbox-main">Yo o algún miembro de mi familia somos sensitivos al aire contaminado, por tanto me gustaría recibir información adicional sobre la calidad del aire.</p>
+                            <p class="input-note checkbox-second">No está seguro si es usted?<a href="#">Vea más detalles aquí.</a></p>
                         </div>
                     </div>
                     <div class="submit-container">
-                        <input class="signup-submit" type="submit" value="SIGN UP">
+                        <input class="signup-submit" type="submit" value="Regístrese">
                     </div>
                 </form>
             </div>
