@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Thank You!</title>
+</head>
+<body>
+    <div class="header-container">
+        {% include "./template-parts/header.html" %}
+    </div>
+    <div class="home-container">
+        <div class="home-inner thank-you">
+            <h1>Thank you for helping us create a healthier Grand Rapids</h1>
+            <p>Your first Air Quality update should arrive within 48 hours</p><br>
+            <p>Please direct any support concerns to <a href="mailto:schertec@mail.gvsu.edu">support@freshairgr.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
