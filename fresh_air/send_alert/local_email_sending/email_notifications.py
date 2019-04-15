@@ -1,6 +1,3 @@
-##TO DO:
-##fix query to check first 
-
 
 import smtplib
 from string import Template
@@ -41,15 +38,14 @@ def get_contacts():
     response = table.scan()
 
     for i in response["Items"]:
-        try:
+        temp = str(json.dumps(i["emailAlerts"], cls=DecimalEncoder))
+        if temp == 'true':
             temp = str(json.dumps(i["email"], cls=DecimalEncoder))
             temp_email = temp.replace("\"", "")
             temp = str(json.dumps(i["name"], cls=DecimalEncoder))
             temp_name = temp.replace("\"", "")
             contacts_emails.append(temp_email)
             contacts_names.append(temp_name)
-        except:
-            print("there is an issue here and i caught it")
 
     return contacts_names, contacts_emails
 
@@ -74,10 +70,7 @@ def send_emails():
 
         # add name to the email template
         message = message_template.substitute(PERSON_NAME=name.title())
-        
-        #testing
-        print(message)
-
+ 
         # setup the parameters of the message
         msg['From']=config.MY_ADDRESS
         msg['Subject']="Air Quality Alert"
@@ -85,8 +78,7 @@ def send_emails():
         
         msg.attach(MIMEText(message, 'plain'))
 
-        #commented for testing
-        #s.send_message(msg)
+        s.send_message(msg)
         
         del msg
         

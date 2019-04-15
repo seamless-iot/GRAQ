@@ -1,7 +1,3 @@
-#TO DO:
-##add carrier to sign up page and then uncomment code 
-##fix query to check if item exists 
-
 import smtplib
 import boto3
 import json
@@ -31,14 +27,14 @@ def get_contacts():
                               aws_secret_access_key=config.SECRET_KEY,
                               region_name='us-west-2'
                              )
-    # say what table this is
+
     table = dynamodb.Table('email_list')
 
     response = table.scan()
 
-
     for i in response["Items"]:
-        try:
+        temp = str(json.dumps(i["textAlerts"], cls=DecimalEncoder))
+        if temp == 'true':
             temp = str(json.dumps(i["phone"], cls=DecimalEncoder))
             temp_phone = temp.replace("\"", "")
             temp = str(json.dumps(i["name"], cls=DecimalEncoder))
@@ -48,9 +44,7 @@ def get_contacts():
             temp = str(json.dumps(i["carrier"], cls=DecimalEncoder))
             temp = temp.replace("\"", "")
             contacts_carrier.append(temp)
-        except:
-            print("there is an issue here and i caught it")
-
+        
     return contacts_name, contacts_phone, contacts_carrier
 
 def send_texts(message):
@@ -70,11 +64,7 @@ def send_texts(message):
     }
 
     names, numbers, carriers = get_contacts()
-    #names, numbers = get_contacts()
     
-    #temp with my number for testing 
-    #to_number = '5862601818{}'.format(carriers['att'])
-
     # Establish a secure session with gmail's outgoing SMTP server using your gmail account
     #SMTP server
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
@@ -82,15 +72,6 @@ def send_texts(message):
     s.login(config.MY_ADDRESS, config.PASSWORD)
 
     for name, number, carrier in zip(names, numbers, carriers):
-    #for name, number in zip(names, numbers):
-        #for testing delete after 
-        #sending all texts to me so I dont spam people on the list rn 
-
-        print(carrier)
-
-        number ='5862601818'
-        carrier = 'att'
-
         number = number + '{}'
         number = number.format(carriers_list[carrier]) 
         text = name + message
