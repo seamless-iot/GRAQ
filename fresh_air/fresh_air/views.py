@@ -18,41 +18,48 @@ def home_page(request):
     return render(request, 'home.html')
 
 def about(request):
-
-
     mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-    app = DjangoDash('sensormap', external_stylesheets=external_stylesheets)
+    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+    # Initiating and running dataPull script
+    # This script is used to pull data from the DynamoDB
     graphData = dataPull.graphDataGetter()
     graphData.run()
-    locationData = graphData.getLocationData()
-    latC = []
-    lonC = []
-    textC = []
 
-    buff = ''
+    # getLocationData() returns the location, device ID, device type
+    # and AQI for all sensors on the DB
+    locationData = graphData.getLocationData()
+
+    # For debugging purposes
+    # print(locationData)
+
+    latC=[]
+    lonC=[]
+    textC=[]
+    buff=''
+
+    # This nested for loop gets the data from getLocationData()
+    # and stores the relevant variables in the three lists we initialized
+    # above. These lists store the latitude and longitude of each sensor,
+    # as well as the text that will be displayed on their tags.
     for i in locationData:
         index = 0
         for a in i['device_gps_location']:
-            if (a == ','):
+            if(a == ','):
                 latC.append(buff)
                 buff = ''
-            elif (index == len(i['device_gps_location']) - 1):
+            elif(index == len(i['device_gps_location'])-1):
                 lonC.append(buff)
                 buff = ''
-            elif (a != ' '):
+            elif(a != ' '):
                 buff += a
             index += 1
-
-        textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i[
-            'device_type'] + '. Current AQI measured: ')  # + i['aqi'] )
+        textC.append('Device ID: ' + i['device_id'] + '. Device Type: ' + i['device_type']
+                     + '. Current AQI measured:' + str(i['AQI']))
 
     app.layout = html.Div(children=[
-        html.H1(children='Sensor Location Sample Test'),
-        html.Div(children='This is a test for a map that shows were air quality sensors are '
-                          'located. Right now this is made out of sample data.'),
         dcc.Graph(
             id='example-graph',
             figure={
