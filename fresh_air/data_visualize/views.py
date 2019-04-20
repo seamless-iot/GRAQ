@@ -8,6 +8,8 @@ from django_plotly_dash import DjangoDash
 # Create your views here.
 from django.http import HttpResponse
 import os
+from django.urls import resolve
+
 
 
 
@@ -311,5 +313,8 @@ def test(request):
             }
         )
     ])
-
-    return render(request, 'report.html')
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'Data':
+        return render(request, 'report.html')
+    else:
+        return render(request, 'spanish-templates/report.html')

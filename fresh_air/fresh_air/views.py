@@ -11,11 +11,18 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from data_visualize import models as dataPull
 from django_plotly_dash import DjangoDash
+from django.urls import resolve
+
 
 
 
 def home_page(request):
-    return render(request, 'home.html')
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'Home':
+        return render(request, 'home.html')
+    else:
+        return render(request, 'spanish-templates/home.html')
+
 
 def about(request):
     mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
@@ -91,21 +98,36 @@ def about(request):
             }
         )
     ])
+    current_url = resolve(request.path_info).url_name
 
-    return render(request, 'about.html')
+    if current_url == 'About':
+        return render(request, 'about.html')
+    else:
+        return render(request, 'spanish-templates/about.html')
 
 def analysis(request):
     return render(request, 'analysis.html')
 
 def airqualityguide(request):
-    return render(request, 'air-quality-guide.html')
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'AQG':
+        return render(request, 'air-quality-guide.html')
+    else:
+        return render(request, 'spanish-templates/air-quality-guide.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'Contact':
+        return render(request, 'contact.html')
+    else:
+        return render(request, 'spanish-templates/contact.html')
 
 def data(request):
-    return render(request, 'data.html')
-
+    current_url = resolve(request.path_info).url_name
+    if current_url == 'Data':
+        return render(request, 'data.html')
+    else:
+        return render(request, 'spanish-templates/data.html')
 # this is the function called by the form
 # we don't really need to print the post variables, but
 # we can pass them to another function that stores them
