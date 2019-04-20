@@ -63,8 +63,8 @@ sendTime = currentDT.strftime("%Y-%m-%d") + "/" + strHour + ":00:00"
 # Ex: from 9:00:01 to 10:00:00
 table = dynamodb.Table('ost_data')
 # For testing purposes, using fake date
-#end_time = currentDT.strftime("%Y-%m-%d") + 'T' + strHour + ':00:00'
-end_time = '2018-09-26T14:00:00'
+end_time = currentDT.strftime("%Y-%m-%d") + 'T' + strHour + ':00:00'
+#end_time = '2018-09-26T14:00:00'
 
 intHour -= 1
 if intHour <10:
@@ -72,8 +72,8 @@ if intHour <10:
 else:
     strHour = str(intHour)
 # For testing purposes, using fake date
-#start_time = currentDT.strftime("%Y-%m-%d") + 'T' + strHour + ':00:01'
-start_time = '2018-09-26T13:00:01'
+start_time = currentDT.strftime("%Y-%m-%d") + 'T' + strHour + ':00:01'
+#start_time = '2018-09-26T13:00:01'
 
 # Pull all ost_data from table for time interval
 #print(start_time)
@@ -194,9 +194,9 @@ for i in locationData:
 # For testing purposes, this code can
 # fill the locations with no AQI data
 # with random values
-for i in locationData:
-    if i["AQI"] == 0:
-        i["AQI"] = 25 + random.randint(1, 25)
+# for i in locationData:
+#     if i["AQI"] == 0:
+#         i["AQI"] = 25 + random.randint(1, 25)
 
 strIDs = "["
 strAQIs = "["
