@@ -25,13 +25,20 @@ urlpatterns = [
     path('about/', views.about, name="About"),
     path('admin/', admin.site.urls),
     path('analysis/', views.analysis, name="Analysis"),
-    path('guide/', views.airqualityguide, name="Air Quality Guide"),
-    path('contact/', views.contact, name="Contact Us"),
-    path('data/', views.data, name="Get the Data"),
+    path('report/', include('data_visualize.urls')),
+    path('guide/', views.airqualityguide, name="AQG"),
+    path('contact/', views.contact, name="Contact"),
+    path('data/', views.data, name="Data"),
     # this is where our signup form points to. It activates the "signup" function in views.py
     path('thankyou/', views.signup, name='signup'),
-    #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    path('report/', include('data_visualize.urls')),
-    path('django_plotly_dash/', include('django_plotly_dash.urls'))
 
-    ]
+    path('es/', views.home_page, name="EsHome"),
+    path('es/about/', views.about, name="EsAbout"),
+    path('es/guide/', views.airqualityguide, name="EsAQG"),
+    path('es/report/', include('data_visualize.urls')),
+    path('es/contact/', views.contact, name="EsContact"),
+    path('es/data/', views.data, name="EsData"),
+
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
+
+]
