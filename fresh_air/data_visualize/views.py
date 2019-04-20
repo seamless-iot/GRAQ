@@ -17,7 +17,7 @@ def test(request):
     import dash_core_components as dcc
     import dash_html_components as html
     import plotly.graph_objs as go
-    import dataPull
+    from  data_visualize import models as dataPull
     import json
     from matplotlib import path
     import math
@@ -66,7 +66,10 @@ def test(request):
         lon = ''
 
     # Open the GeoJson file containing the different neighborhoods of Grand Rapids
-    with open('City_of_Grand_Rapids_Neighborhood_Areas.geojson') as f:
+    target_dir = os.path.dirname(__file__)
+    file_path = os.path.join(target_dir, 'City_of_Grand_Rapids_Neighborhood_Areas.geojson')
+
+    with open(file_path) as f:
         geoFile = json.load(f)
 
     # From this file we only need the name of the neighborhoods, in order to be able to identify them, and the coordinates
@@ -278,7 +281,7 @@ def test(request):
         elif x['AQI'] > 433:
             listForMap[x['index']]['color'] = 'rgba(134, 18, 51, 1)'
 
-    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+    app = DjangoDash('neighborhood_map', external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(children=[
         dcc.Graph(

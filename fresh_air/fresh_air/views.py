@@ -21,7 +21,7 @@ def about(request):
     mapbox_access_token = 'pk.eyJ1IjoicmFtaWphdmkiLCJhIjoiY2pyemJ5bm56MTdhMzRhbXRscjA0djd0dSJ9.TDjuO5EJnwFcz7hZCEXXwA'
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-    app = dash.Dash('sensormap', external_stylesheets=external_stylesheets)
+    app = DjangoDash('sensormap', external_stylesheets=external_stylesheets)
 
     # Initiating and running dataPull script
     # This script is used to pull data from the DynamoDB
