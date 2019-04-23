@@ -5,6 +5,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        $(document).ready(function() {
+            $('#menu-expand').click(function() {
+                $('#menu-open').toggle();
+            });
+         });
+    </script>
     <div class="header-inner">
         <div class="top-bar">
             <div class="top-bar-inner">
@@ -23,7 +32,7 @@
                     <h1>Project Fresh Air Grand Rapids</h1>
                 </div>
             </div>
-            <div class="nav-bar-bottom">
+            <div class="nav-bar-bottom desktop-navbar">
                 <div class="navbar">
                     <div class="navbar-inner">
                     <a href="/">Home</a>
@@ -42,6 +51,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="nav-bar-bottom mobile-navbar">
+            <div id="menu-expand" class="hamburger-container">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+        <div id="menu-open" class="nav-bar-bottom mobile-navbar mobile-navbar-bottom">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/report">Air Quality Report</a>
+            <a href="/guide">Air Quality Guide</a>
+            <a href="/data">Get the Data</a>
+            <a href="/contact">Contact Us</a>
         </div>
     </div>
 </div>

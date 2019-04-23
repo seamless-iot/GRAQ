@@ -13,7 +13,7 @@ from django.urls import resolve
 
 
 
-def test(request):
+def report(request):
     # -*- coding: utf-8 -*-
     import dash
     import dash_core_components as dcc
@@ -314,7 +314,7 @@ def test(request):
         )
     ])
     current_url = resolve(request.path_info).url_name
-    if current_url == 'Data':
+    if current_url == 'Report':
         return render(request, 'report.html')
     else:
         return render(request, 'spanish-templates/report.html')
