@@ -490,7 +490,32 @@ html, body, .home-container {
     width: 100%;
     max-width: 100%;
 }
-
+.mobile-navbar {
+    height: 40px;
+    display: none;
+}
+.hamburger-container {
+    width: 20%;
+    padding: .5em;
+    padding-left: 1.5em;
+    text-align: left;
+}
+.mobile-navbar i {
+    color: white;
+    font-size: 22px;
+}
+.mobile-navbar-bottom {
+    display: none;
+    height: inherit;
+    text-align: left;
+    padding: .5em;
+    padding-left: 1.5em;
+}
+.mobile-navbar-bottom a{
+    display: block !important;
+    color: white;
+    padding-bottom: 0.75em;
+}
 @media screen and (max-width: 700px) {
     .top-bar-inner {
         padding-right: 1em;
@@ -519,12 +544,23 @@ html, body, .home-container {
         width: 90%;
     }
     .alert-form .alert_field {
-        width: 100%;
+        width: 90%;
     }
 
     .guide-inner {
         width: 95%;
         padding: 1em .5em;
     }
-
+    .desktop-navbar {
+        display: none;
+    }
+    .mobile-navbar {
+        display: block;
+    }
+    #menu-open {
+        display: none;
+        position: absolute;
+        z-index: 200;
+    }
 }
+
