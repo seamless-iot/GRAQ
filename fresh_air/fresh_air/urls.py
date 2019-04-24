@@ -29,6 +29,7 @@ urlpatterns = [
     path('guide/', views.airqualityguide, name="AQG"),
     path('contact/', views.contact, name="Contact"),
     path('data/', views.data, name="Data"),
+
     # this is where our signup form points to. It activates the "signup" function in views.py
     path('thankyou/', views.signup, name='signup'),
 
