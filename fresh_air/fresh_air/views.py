@@ -128,10 +128,8 @@ def data(request):
         return render(request, 'data.html')
     else:
         return render(request, 'spanish-templates/data.html')
-# this is the function called by the form
-# we don't really need to print the post variables, but
-# we can pass them to another function that stores them
-# in the aws database
+
+
 def signup(request):
     name = request.POST['name']
     email = request.POST['email']
