@@ -23,8 +23,8 @@ class DecimalEncoder(json.JSONEncoder):
 
 class graphDataGetter(object):
     def __init__(self):
-        self.ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
-        self.SECRET_KEY = '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'
+        self.ACCESS_KEY = ''
+        self.SECRET_KEY = ''
         self.dynamodb = boto3.resource('dynamodb',
                                   aws_access_key_id=self.ACCESS_KEY,
                                   aws_secret_access_key=self.SECRET_KEY,
