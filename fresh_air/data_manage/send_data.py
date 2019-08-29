@@ -16,8 +16,8 @@ class DecimalEncoder(json.JSONEncoder):
         return super(DecimalEncoder, self).default(o)
 
 
-ACCESS_KEY = 'AKIAIJ55NBMNXJBAX2MA'
-SECRET_KEY = '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'
+ACCESS_KEY = ''
+SECRET_KEY = ''
 
 
 dynamodb = boto3.resource('dynamodb',
